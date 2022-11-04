@@ -1,0 +1,25 @@
+tasks:
+  - 
+    name: unit-tests
+    default: true
+    language: Bash
+    code: |
+      set -e
+      cd source
+      pytest --cov --disable-warnings
+    depends:
+      -
+        name: install-deps
+  -
+    name: install-deps
+    language: Bash
+    code: |
+      set -e
+      cd source
+      pip3 install '.[test]'
+    depends:
+      -
+        name: install-python
+  -
+    name: install-python
+    plugin: sparkyci-package-python
