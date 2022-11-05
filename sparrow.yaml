@@ -40,6 +40,7 @@ tasks:
     name: install-python
     language: Bash
     code: |
+      echo $os 
       if test $os = "alpine"; then
         sudo apk add py3-pip py3-pytest
       elif test $os = "debian"; then
