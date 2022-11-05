@@ -1,6 +1,7 @@
 image:
   - melezhik/sparrow:alpine
   - melezhik/sparrow:debian
+  - melezhik/sparrow:archlinux
 tasks:
   - 
     name: unit-tests
@@ -13,6 +14,8 @@ tasks:
         pytest --cov --disable-warnings
       elif test $os = "debian"; then
         pytest-3 --cov --disable-warnings
+      elif test $os = "archlinux"; then
+        pytest --cov --disable-warnings
       fi      
     depends:
       -
@@ -35,4 +38,6 @@ tasks:
         sudo apk add py3-pip py3-pytest
       elif test $os = "debian"; then
         sudo apt-get install -y python3-pip python3-pytest
+      elif test $os = "archlinux"; then
+        sudo pacman -S --needed --noconfirm -q python-pip python-pytest 
       fi
