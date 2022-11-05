@@ -26,7 +26,13 @@ tasks:
     code: |
       set -e
       cd source
-      pip3 install '.[test]'
+
+      if test $os = "archlinux"; then
+        pip install '.[test]'
+      else
+        pip3 install '.[test]'
+      fi  
+  
     depends:
       -
         name: install-python
