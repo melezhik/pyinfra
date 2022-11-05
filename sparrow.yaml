@@ -9,7 +9,11 @@ tasks:
     code: |
       set -e
       cd source
-      pytest --cov --disable-warnings
+      if test $os = "alpine"; then
+        pytest --cov --disable-warnings
+      elif test $os = "debian"; then
+        pytest-3 --cov --disable-warnings
+      fi      
     depends:
       -
         name: install-deps
