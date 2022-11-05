@@ -28,7 +28,7 @@ tasks:
     language: Bash
     code: |
       if test $os = "alpine"; then
-        sudo apk add py3-pip
+        sudo apk add py3-pip py3-pytest
       elif test $os = "debian"; then
-        sudo apt-get install -y python3-pip
+        sudo apt-get install -y python3-pip python3-pytest
       fi
