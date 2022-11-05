@@ -14,7 +14,7 @@ tasks:
         pytest --cov --disable-warnings
       elif test $os = "debian"; then
         pytest-3 --cov --disable-warnings
-      elif test $os = "archlinux"; then
+      elif test $os = "arch"; then
         pytest --cov --disable-warnings
       fi      
     depends:
@@ -27,7 +27,7 @@ tasks:
       set -e
       cd source
 
-      if test $os = "archlinux"; then
+      if test $os = "arch"; then
         pip install '.[test]'
       else
         pip3 install '.[test]'
@@ -45,6 +45,6 @@ tasks:
         sudo apk add py3-pip py3-pytest
       elif test $os = "debian"; then
         sudo apt-get install -y python3-pip python3-pytest
-      elif test $os = "archlinux"; then
+      elif test $os = "arch"; then
         sudo pacman -S --needed --noconfirm -q python-pip python-pytest 
       fi
